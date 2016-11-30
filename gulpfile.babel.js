@@ -10,6 +10,7 @@ import ESDocPublisher from 'esdoc/out/src/Publisher/publish';
 const Promise = global.Promise || require('es6-promise').Promise;
 
 const GLOB = {
+  ts: './lib/**/*.ts',
   lib: './lib/**/*.js',
   build: './build/**/*.js',
   spec: './test/**/*.spec.js'
@@ -19,7 +20,12 @@ gulp.task('clean', () => {
   return del([GLOB.build]);
 });
 
-gulp.task('build', ['clean'], () => {
+gulp.task('declaration', () => {
+  return gulp.src(GLOB.ts)
+    .pipe(gulp.dest('build/'))
+})
+
+gulp.task('build', ['clean', 'declaration'], () => {
   return gulp.src(GLOB.lib)
     .pipe(babel())
     .pipe(gulp.dest('build/'));

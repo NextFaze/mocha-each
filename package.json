@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Parameterized test utility for Mocha",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "build": "gulp build",
     "test": "gulp check",
