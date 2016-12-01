@@ -22,8 +22,8 @@ gulp.task('clean', () => {
 
 gulp.task('declaration', () => {
   return gulp.src(GLOB.ts)
-    .pipe(gulp.dest('build/'))
-})
+    .pipe(gulp.dest('build/'));
+});
 
 gulp.task('build', ['clean', 'declaration'], () => {
   return gulp.src(GLOB.lib)
